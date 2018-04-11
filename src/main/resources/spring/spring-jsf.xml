@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jsf="http://jsf.jd.com/schema/jsf"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://jsf.jd.com/schema/jsf  http://jsf.jd.com/schema/jsf/jsf.xsd">
+    
+    <!-- 注册中心 -->
+    <jsf:registry id="jsfRegistry" protocol="jsfRegistry" index="i.jsf.jd.com"/>
+    
+    <!-- 服务端 -->
+    <jsf:server id="jsf" protocol="jsf"/>
+    <jsf:consumer id="entrustInvoiceApplyFacade" alias="v2" interface="com.yishi.ebl.server.thirdparty.api.ExternalRegFacade" timeout="5000"/>
+    <jsf:consumer id="invoiceSumUpFacade" alias="v2" interface="com.yishi.ebl.server.thirdparty.proxyinvoice.api.ProxyPaperInvoiceFacade" timeout="5000"/>
+
+    <!-- <jsf:consumer id="taskManager" alias="base" interface="com.jd.cwbase.worker.zk.TaskManager" check="false" />
+	<bean class="com.jd.cwbase.worker.workUtil.WorkerQuartzUtil">
+	        应用标示
+	        <property name="appId" value="test" />
+	        实例区分标示：用于区分同ip部署的多个实例/也可用来标注不同分组标示
+	        <property name="applicationId" value="app1" />
+	        配置信息本地备份路径
+	        <property name="localBakFilePath" value="/export/data/new-caiwu-basewk" />
+	        <property name="taskManager" ref="taskManager" />
+	        <property name="period" value="5000" />
+	        任务引擎自动搜索根目录,任务类需要继承CycleWorkerEngine或者TaskWorkerEngine接口
+	        <property name="basePackages" value="com.yishi.invoice.server.test.worker" />
+	</bean> -->
+    
+</beans>
